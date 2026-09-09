@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-tesra-gradient bg-fixed text-berry-900 font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-rose-300 text-berry-900;
+  }
+
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid #590D22;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/50 backdrop-blur-md border border-white/60 shadow-glass rounded-soft transition-shadow duration-300;
+  }
+
+  .glass-card:hover {
+    @apply shadow-glass-hover;
+  }
+
+  .pill-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3 font-body text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .pill-btn-primary {
+    @apply pill-btn bg-berry-800 text-cream hover:bg-berry-700 active:scale-[0.98];
+  }
+
+  .pill-btn-secondary {
+    @apply pill-btn bg-white/70 text-berry-800 border border-berry-800/20 hover:bg-white active:scale-[0.98];
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-berry-800/15 bg-white/70 px-4 py-3 text-berry-900 placeholder:text-berry-800/40 focus:border-rose-500 focus:bg-white transition-colors;
+  }
+}
